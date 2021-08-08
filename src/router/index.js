@@ -9,10 +9,20 @@ const routes = [
     redirect: "/login"
   },{
     path: "/login",
-    component: () => import("@/components/Login")
+    component: () => import("@/views/Login")
   },{
     path: "/home",
-    component: () => import("@/components/Home")
+    component: () => import("@/views/Home"),
+    redirect: "/welcome",
+    children: [
+      {
+        path: "/welcome",
+        component: () => import("@/views/Welcome")
+      },{
+        path: "/users",
+        component: () => import("@/views/Users")
+      }
+    ]
   }
 ]
 
