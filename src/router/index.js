@@ -21,6 +21,12 @@ const routes = [
       },{
         path: "/users",
         component: () => import("@/views/Users")
+      },{
+        path: "/rights",
+        component: () => import("@/views/Power/Rights")
+      },{
+        path: "/roles",
+        component: () => import("@/views/Power/Roles")
       }
     ]
   }
