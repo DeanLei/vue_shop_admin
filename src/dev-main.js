@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
-import "@/plugins/element.js"
+import store from './store';
+import "@/plugins/element.js";
 import 'element-ui/lib/theme-chalk/index.css';
 import "@/assets/css/global.css";
 import "./assets/fonts/iconfont.css";
@@ -17,11 +17,23 @@ import 'quill/dist/quill.bubble.css' // for bubble theme
 // 将富文本编辑器注册为全局可用组件
 Vue.use(VueQuillEditor)
 
+// 导入NProgress包对应的js和css
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
 // 配置请求的根路径
 axios.defaults.baseURL = "http://127.0.0.1:8888/api/private/v1/";
+// 在request拦截器中，展示进度条
 axios.interceptors.request.use(config => {
+  NProgress.start()
   config.headers.Authorization = sessionStorage.getItem("token")
   return config;
+})
+
+// 在response拦截器中，隐藏进度条
+axios.interceptors.response.use(config => {
+  NProgress.done()
+  return config
 })
 
 Vue.prototype.$http = axios;

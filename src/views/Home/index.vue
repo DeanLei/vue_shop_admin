@@ -9,7 +9,7 @@
       <el-button @click="logout" type="info">退出</el-button>
     </el-header>
     <!-- 页面主体 -->
-    <el-container>
+    <el-container class="main-container">
       <!-- 页面侧边栏 -->
       <el-aside :width="isCollapse ? '64px':'200px'">
         <!-- 侧边栏菜单 -->
@@ -109,6 +109,9 @@ export default {
 <style lang="less" scoped>
 .home-container {
   height: 100%;
+}
+.main-container{
+  height: calc(100% - 60px);
 }
 .el-header {
   background-color: #373d41;

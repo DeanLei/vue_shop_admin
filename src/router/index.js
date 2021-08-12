@@ -23,22 +23,22 @@ const routes = [
         component: () => import("@/views/Users")
       },{
         path: "/rights",
-        component: () => import("@/views/Power/Rights")
+        component: () => import(/* webpackChunkName: "power" */ "@/views/Power/Rights")
       },{
         path: "/roles",
-        component: () => import("@/views/Power/Roles")
+        component: () => import(/* webpackChunkName: "power" */ "@/views/Power/Roles")
       },{
         path: "/categories",
         component: () => import("@/views/Goods/Cate")
       },{
         path: "/params",
-        component: () => import("@/views/Goods/Params")
+        component: () => import(/* webpackChunkName: "goods" */ "@/views/Goods/Params")
       },{
         path: "/goods",
-        component: () => import("@/views/Goods/List"),
+        component: () => import(/* webpackChunkName: "goods" */ "@/views/Goods/List"),
       },{
         path: "/goods/add",
-        component: () => import("@/views/Goods/Add")
+        component: () => import(/* webpackChunkName: "goods" */ "@/views/Goods/Add")
       },{
         path: "/orders",
         component: () => import("@/views/Order")

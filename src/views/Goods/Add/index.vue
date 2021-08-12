@@ -233,7 +233,6 @@ export default {
     handleRemove(file) {
       // 1. 获取将要删除的图片的临时路径
       const filePath = file.response.data.tmp_path;
-      console.log(file, filePath);
       // 2. 从pics数组中，找到这个图片对应的索引值
       const i = this.addForm.pics.findIndex(x => x.pic === filePath);
       // 3. 调用数组的splice方法，把图片信息对象，从pics数组中移除
